@@ -1,0 +1,110 @@
+---
+title: "Philadelphia Schools Proximity to Healthy/Unhealthy Food Sources"
+subtitle: "BMIN5030 Final Project"
+author: "Emily Kim"
+format: html
+editor: visual
+number-sections: true
+embed-resources: true
+---
+
+------------------------------------------------------------------------
+
+## Overview {#sec-overview}
+
+This project explores the relationship between Philadelphia school locations and their surrounding food environments to better understand disparities in access to healthy versus unhealthy food sources. The goal is determine whether schools across Philadelphia are surrounded by more fast food outlets than by supermarkets and other healthier food options and to examines how this proximity might relate to childhood obesity and health outcomes.
+
+For this project, I am using publicly available a couple of data sets from OpenDataPhilly. These data sets include spatial data on food retailer locations and categories across Philadelphia, which I will intergrate with school location data to assess patterns of healthy and unhealthy food access.
+
+For my project, I met with Anita Stief, MPH, RD, LDN, Education Coordinator for the Penn MPH Program, who provided insights into nutrition disparities and food insecurity in Philadelphia. She emphasized that neighborhoods like West and North Philadelphia face limited access to fresh healthy foods and higher rates of diet related diseases compared to areas like Center City. I also met with Jennifer Orr, MSPHS, Project Manager, in MEHP at Penn, who shared her perspective on how socioeconomic factors and school environments influence children's dietary habits and long term health. From these discussions, I learned how nutrition, environment, and policy intersect to shap health inequities across Philadelphia communities.
+
+## Introduction {#sec-introduction}
+
+Limited access to healthy foods is a long standing public health challenge that contributes to widening health disparities across cities in the United States. In Philadelphia, the distribution of food retailers is highly uneven with many neighborhood lacking fresh produce, but have many outlets to fast food chains and corner stores. These food environments are closely linked to diet quality, body mass index (BMI), and long term disease risk. Children are especially vulnerable because their daily food choices are shaped around their homes and particularly schools, as that is where they spend most of their time. As a result, school proximity to unhealthy food sources can influence students eating behaviors and contribute to childhood obesity, poor nutrition, and chronic diseases later in life. This project addresses the problem by examining whether Philadelphia schools are surrounded more by fast food and corner stores than by healthy food options, and by considering what the pattern might imply for nutrition equity and community health.
+
+Understanding the issue requires approaches that integrate insights from public health, nutrition science, urban planning, and data science. The people I met with explained that access to healthy food in Philadelphia depends on neighborhood geography to an extent and central areas such as Center City have better access to healthier foods and higher life expediencies, whereas the farther neighborhoods are from Center City are more likely to face food insecurity and higher rates of chronic disease. They also stated how socioeconomic disparities and school level factors shape children's dietary choices. Their perspectives highlight how environment, policy, and behavior instersect, reinforcing the need to analyze Philadelphia's school food landscape using spatial data and informatics methods to inform equity nutrition policies and intervention design.
+
+## Methods {#sec-methods}
+
+**Data Sources and Design**
+
+I looked at these data sets from OpenDataPhilly:
+
+1.  Schools (<https://opendataphilly.org/datasets/schools/>)
+
+2.  Neighborhood Food Retail (<https://opendataphilly.org/datasets/neighborhood-food-retail/>)
+
+3.  Farmers Markets (<https://opendataphilly.org/datasets/farmers-markets-locations/>)
+
+4.  Philadelphia Beverage Tax (<https://opendataphilly.org/datasets/philadelphia-beverage-tax-registered-distributors-and-dealers/>)
+
+5.  WIC Offices (<https://opendataphilly.org/datasets/women-infants-children-wic-offices/>)
+
+6.  Health of the City (<https://opendataphilly.org/datasets/health-of-the-city/>)
+
+I plan to build buffers around each school and look at healthy, unhealthy, and WIC sites.
+
+**Packages and Libraries**
+
+```{r}
+# Install packages
+install.packages("tidyverse")
+install.packages("sf")
+install.packages("janitor")
+install.packages("leaflet")
+install.packages("gt")
+install.packages("htmltools")
+install.packages("string")
+install.packages("fs")
+
+# Load librbaries
+library(tidyverse)
+library(sf)
+library(janitor)
+library(leaflet)
+library(gt)
+library(htmltools)
+library(stringr)
+library(fs)
+
+pal_fun <- leaflet::colorNumeric("BuPu", NULL)
+```
+
+**Load Data Sets**
+
+```{r}
+
+library(sf)
+library(readr)
+library(janitor)
+
+# GeoJSON
+schools <- read_sf("data/schools.geojson") %>% clean_names()
+foodret <- read_sf("data/neighfoodretail.geojson") %>% clean_names()
+farmers <- read_sf("data/farmers.geojson") %>% clean_names()
+bevtax  <- read_sf("data/beverages.geojson") %>% clean_names()
+wic     <- read_sf("data/wic.geojson") %>% clean_names()
+
+# CSV 
+health_ct <- read_csv("data/cityhealth.csv", show_col_types = FALSE) %>% clean_names()
+```
+
+## Results {#sec-results}
+
+Describe your results and include relevant tables, plots, and code/comments used to obtain them. You may refer to the @sec-methods as needed. End with a brief conclusion of your findings related to the question you set out to address. You can include references if you'd like, but this is not required.
+
+I'm planning to create a bunch of maps to look at Philadelphia schools proximity to food outlets and others below:
+
+**Healthy vs. Unhealthy Foods**
+
+Neighborhood Food Retail includes a produce supply or category field. Farmers (healthy), beverages tax dealers (unhealthy), and WIC (access).
+
+**Schools vs. Proximity to Food Sources**
+
+**Health of the City**
+
+**Age and Chronic Diseases/Socioeconomic Status**
+
+## Conclusion
+
+This the conclusion. The @sec-results can be invoked here.
