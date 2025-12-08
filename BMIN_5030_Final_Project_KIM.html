@@ -2205,13 +2205,17 @@ vertical-align: -.125em;
 
 <hr>
 <section id="sec-overview" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="sec-overview"><span class="header-section-number">1</span> Overview</h2>
+<h2 data-number="1" class="anchored" data-anchor-id="sec-overview"><span class="header-section-number">1</span> Github</h2>
+<p><a href="https://github.com/emikim/BMIN-5030-Final-Project" class="uri">https://github.com/emikim/BMIN-5030-Final-Project</a></p>
+</section>
+<section id="overview" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="overview"><span class="header-section-number">2</span> Overview</h2>
 <p>This project explores the relationship between Philadelphia school locations and their surrounding food environments to better understand disparities in access to healthy versus unhealthy food sources and how that might relate to childhood obesity. The goal is determine whether schools across Philadelphia are surrounded by more fast food outlets other healthier food options and to examine how this proximity might relate to childhood obesity.</p>
 <p>For this project, I am using a couple of publicly available data sets from OpenDataPhilly. These data sets include spatial data on food retailer locations and categories across Philadelphia, which I will integrate with school location data to assess patterns of healthy and unhealthy food access.</p>
 <p>For my project, I met with Anita Stief, MPH, RD, LDN, Education Coordinator for the Penn MPH Program, who provided insights into nutrition disparities and food insecurity in Philadelphia. She emphasized that neighborhoods like West and North Philadelphia face limited access to fresh healthy foods and higher rates of diet related diseases compared to areas like Center City. I also met with Jennifer Orr, MSPHS, Project Manager, in MEHP at Penn, who shared her perspective on how socioeconomic factors and school environments influence children’s dietary habits and long term health. From these discussions, I learned how nutrition, environment, and policy intersect to shape health inequities across Philadelphia communities.</p>
 </section>
-<section id="sec-introduction" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="sec-introduction"><span class="header-section-number">2</span> Introduction</h2>
+<section id="sec-introduction" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="sec-introduction"><span class="header-section-number">3</span> Introduction</h2>
 <p>Limited access to healthy foods is a long standing public health challenge that contributes to widening health disparities across cities in the United States. In Philadelphia, where you live in the city matters in terms of your health outcomes. Generally, if people live closer to Center City, their health outcomes and factors are better than those who are farther from Center City. Additionally, the distribution of food retailers is highly uneven with many neighborhood lacking fresh produce, but have many outlets to fast food chains and corner stores. These food environments are closely linked to diet quality, body mass index (BMI), and long term disease risk. Children are especially vulnerable because their daily food choices are shaped around their homes and particularly schools, as that is where they spend most of their time. As a result, school proximity to unhealthy food sources can influence students eating behaviors and contribute to childhood obesity, poor nutrition, and chronic diseases later in life. For this project, I was curious about how where you lived in Philadelphia determines your health outcomes, particulary for children and how this relates to food store locations and if this impacts childhood obesity risk. This project addresses the problem by examining whether Philadelphia schools are surrounded more by fast food and corner stores than by healthy food options, and by considering what the pattern might imply for nutrition equity and community health.</p>
 <p>Understanding the issue requires approaches that integrate insights from public health, nutrition science, urban planning, and data science. The people I met with explained that access to healthy food in Philadelphia depends on neighborhood geography to an extent and central areas such as Center City have better access to healthier foods and higher life expediencies, whereas the farther neighborhoods are from Center City are more likely to face food insecurity and higher rates of chronic disease. They also stated how socioeconomic disparities and school level factors shape children’s dietary choices. Their perspectives highlight how environment, policy, and behavior intersect, reinforcing the need to analyze Philadelphia’s school food landscape using spatial data and informatics methods to inform equity nutrition policies and intervention design.</p>
 <p>Research Questions:</p>
@@ -2221,8 +2225,8 @@ vertical-align: -.125em;
 <li>What is the relationship between school proximity to food resources and childhood obesity in Philadelphia?</li>
 </ol>
 </section>
-<section id="sec-methods" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="sec-methods"><span class="header-section-number">3</span> Methods</h2>
+<section id="sec-methods" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="sec-methods"><span class="header-section-number">4</span> Methods</h2>
 <p><strong>Data Sources and Design</strong></p>
 <p>I looked at these data sets from OpenDataPhilly:</p>
 <ol type="1">
@@ -2916,8 +2920,8 @@ area_unhealthy = number of low produce / corner type stores (LPSS)<br>
 area_total = HPSS + LPSS<br>
 healthy ratio = HPSS / (HPSS+LPSS)</p>
 </section>
-<section id="results" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="results"><span class="header-section-number">4</span> Results</h2>
+<section id="results" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="results"><span class="header-section-number">5</span> Results</h2>
 <p><strong>Distribution of Schools</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(</span>
@@ -3531,15 +3535,15 @@ F-statistic: 13.84 on 3 and 314 DF,  p-value: 1.682e-08</code></pre>
 </div>
 <p>The plot shows a clear and statistically significant relationship between neighborhood poverty and the food environment surrounding schools. As poverty increases, the proportion of healthy food stores decreases. Schools in high poverty neighborhoods have some of the lowest healthy food ratios in the city, reinforcing inequities in food access and potentially contributing to more poor health outcomes such as childhood obesity.</p>
 </section>
-<section id="limitations" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="limitations"><span class="header-section-number">5</span> Limitations</h2>
+<section id="limitations" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="limitations"><span class="header-section-number">6</span> Limitations</h2>
 <p>The project is limited by the absence of Philadelphia specific childhood obesity data, the constrains of available spatial health outcomes, and the fact that food environment data sets measure geographic availability rather true affordability, accessibility, or quality.</p>
 <p>I tried so far to find data sets about childhood obesity in Philadelphia and thought there would be at least something I can use in all of the data sets I am using (because I used a lot sources), but I couldn’t find anything so I used national data instead to make conclusions. So although childhood obesity could not be mapped directly, national obesity trends and local environment indicators were used to infer potential risk. A direct regression between school environments and childhood obesity was not possible because no Philadelphia childhood dataset could be found. Instead, I created an environmental obesity risk score and used regression to identify which neighborhood features predict obesogenic school environments. Poverty and unhealthy food density were the strongest predictors. National childhood obesity trends are increasing, and we can assume from this that Philadelphia childhood obesity risk is increasing as well.</p>
 <p>Healthy food sources may be undercounted because healthy food environments relied on farmers markets, WIC locations, and high produce supply stores (HPSS). Farmers markets operate seasonally, WIC locations serve as more administrative rather than retail roles, and HPSS classifications may not capture the full range of healthy food access (eg. food cop-ops, specialty markets).</p>
 <p>The food environment datasets indicate the presence of food outlets, but do not represent price differences, quality of available produce, store hours of reliability, and cultural relevance of food options. With this, the true accessibility of healthy foods may differ from what spatial data suggests.</p>
 </section>
-<section id="conclusion" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">6</span> Conclusion</h2>
+<section id="conclusion" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">7</span> Conclusion</h2>
 <p>This project examined the food environments surrounding Philadelphia schools and identified substantial spatial inequities in access to healthy vs unhealthy food sources. By integrating multiple data sets like neighborhood food retail, farmers markets, WIC offices, school locations, poverty indicators, walk ability measures, and national trends in childhood obesity, the analysis demonstrated the majority of Philadelphia schools are situated in environments that may increase children risk for obesity and poor nutrition.</p>
 <p>Quantitative findings reveal disparities. Over 91% of schools are located in neighborhoods where healthy food retailers make up less than 25% of all food outlets. Schools in high poverty neighborhoods have a 40% lower healthy food ration (9.9% vs 15.7%) and 40% more unhealthy food retailers compared to schools in lower poverty neighborhoods. These patterns presume that students in disadvantaged areas are disproportionately surrounded by corner stores, fast food outlets, and other low produce stores, while having limited access to fresh fruits, vegetables, and nutritious options. Such environmental inequities mirror national trends showing rising childhood obesity and underscore how local food environments may reinforce broader health disparities.</p>
 <p>Although direct neighborhood level childhood obesity data for Philadelphia was not available, the integration of food availability, walkability, poverty, and life expectancy data provides meaningful insight into the structural conditions shaping children’s health risks. Planning districts farther from Center City - areas with lower health food availability - also showed lower life expectancy, suggesting to socioeconomic disadvantage, limited healthy food access, and more poor long term health outcomes.</p>
