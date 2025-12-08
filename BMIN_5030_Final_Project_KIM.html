@@ -2754,7 +2754,7 @@ dbl  (5): metric_value, lower_bound, upper_bound, leading_cause_death_rank, ...
 <span id="cb39-65"><a href="#cb39-65" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
 <span id="cb39-66"><a href="#cb39-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_make_valid</span>()</span>
 <span id="cb39-67"><a href="#cb39-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-68"><a href="#cb39-68" aria-hidden="true" tabindex="-1"></a><span class="co"># Real HEALTHY POINTS: Farmers + WIC (NO synthetic HPSS points)</span></span>
+<span id="cb39-68"><a href="#cb39-68" aria-hidden="true" tabindex="-1"></a><span class="co"># Real HEALTHY POINTS: Farmers + WIC</span></span>
 <span id="cb39-69"><a href="#cb39-69" aria-hidden="true" tabindex="-1"></a>farmers_fixed_sf <span class="ot">&lt;-</span> farmers <span class="sc">%&gt;%</span></span>
 <span id="cb39-70"><a href="#cb39-70" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">zip =</span> <span class="fu">as.character</span>(zip))</span>
 <span id="cb39-71"><a href="#cb39-71" aria-hidden="true" tabindex="-1"></a></span>
@@ -2914,11 +2914,14 @@ Other
 </div>
 </div>
 <p>No individual level cohort was used and I examined the structural food environment and socioeconomic factors that contribute to childhood obesity risk around schools. But there were ~250 elementary, ~80 middle, ~120 high, and ~40 other (mixed program/special) schools.</p>
-<p>The merged data shows basic school information, neighborhood food environments, socioeconomic context, access context, and nearby healthy outlets.</p>
 <p>area_healthy = number of high produce stores (HPSS)<br>
 area_unhealthy = number of low produce / corner type stores (LPSS)<br>
 area_total = HPSS + LPSS<br>
-healthy ratio = HPSS / (HPSS+LPSS)</p>
+healthy ratio = HPSS / (HPSS+LPSS)\</p>
+<p>The merged data shows basic school information, neighborhood food environments, socioeconomic context, access context, and nearby healthy outlets. All spatial datasets were converted to a commom CRS (PA South State EPSG 2272) so that distances and spatial joins were accurate. The schools dataset was cleaned to keep key fields (school ID, name, level, enrollment) and to categorize each school as Elementary, Middle, or High.</p>
+<p>Food retail data were simplified into analysis-ready indicators: counts of healthy stores (HPSS), unhealthy stores (LPSS), total stores, and a healthy food ratio (HPSS ÷ [HPSS + LPSS]). Neighborhood context variables—including poverty percentage, high-poverty status, and vehicle availability—were retained.</p>
+<p>Walk-access and low/no-access datasets were validated and spatially joined to each school. Farmers markets and WIC offices were combined into a single layer of healthy-food locations. For each school, an 800-foot buffer (approx. 10-minute walk) was used to count nearby healthy food points.</p>
+<p>All layers were merged through sequential spatial joins, producing one comprehensive dataset per school containing neighborhood poverty, food retailer mix, healthy food ratio, walk-access status, and counts of healthy food sources. This final cleaned dataset was used for mapping, descriptive statistics, clustering, and regression analyses.</p>
 </section>
 <section id="results" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="results"><span class="header-section-number">5</span> Results</h2>
